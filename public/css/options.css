@@ -1,0 +1,60 @@
+body {
+    background-color: #0f1414;
+    color: #6f9397;
+}
+#wrapper {
+    width: 800px;
+    margin: 0 auto;
+}
+
+h1.title {
+    text-align: center;
+}
+
+.exchanges_list {
+    list-style: none;
+    padding: 0;
+    width: 600px;
+    margin: 0 auto;
+}
+.exchanges_list li {
+    margin-bottom: 20px;
+}
+
+.exchange {
+    display: inline-block;
+    border: 1px solid #272727;
+    border-radius: 2px;
+    padding: 10px 30px;
+    background: #192223;
+    width: 600px;
+}
+.exchange .title {
+    margin-top: 10px;
+}
+.exchange input {
+    width: 100%;
+    padding: 3px 4px;
+    border: 1px solid #4e696c;
+    box-shadow: inset 1px 2px 3px #0d1011;
+    border-radius: 3px;
+    background-color: #192223;
+    color: #6f9397;
+    box-sizing: border-box;
+}
+a, a:hover {
+    color: #e39706;
+}
+hr {
+    border-color: #272727;
+}
+code {
+    background: #2f4042;
+    border: 1px solid #131a1b;
+    border-radius: 3px;
+    display: inline-block;
+    padding: 1px 3px;
+}
+.save {
+    float: right
+}

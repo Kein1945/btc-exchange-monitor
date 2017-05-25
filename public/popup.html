@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Your exchanges balance</title>
+    <style>
+        body {
+            font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+            font-size: 100%;
+            background-color: #0f1414;
+            color: #6f9397;
+        }
+        #exchanges {
+            width: 300px;
+            margin: 0;
+            padding: 0;
+        }
+        #exchanges li {
+            margin-bottom: 10px;
+            padding: 5px 10px;
+            border: 1px solid #272727;
+            background-color: #192223;
+            border-radius: 3px;
+        }
+        #exchanges li.-error {
+            color: rgb(173, 31, 31);
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+        #exchanges li .exchange {
+            width: 100px;
+            display: inline-block;
+        }
+        #exchanges li .amount {
+            text-align: center;
+            float: right;
+            color: #e39706;
+        }
+        .exchange_loading {
+            animation: blinker 3s ease infinite;
+        }
+        .hide {
+            display: none;
+        }
+
+        @keyframes blinker {
+          50% { opacity: 0.5; }
+        }
+        a, a:hover {
+            color: #e39706;
+        }
+    </style>
+    <script src="js/lodash.min.js"></script>
+    <script src="js/sha512.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/api/btce.js"></script>
+    <script src="js/api/poloniex.js"></script>
+    <script src="js/api/bittrex.js"></script>
+    <script src="js/api/kraken.js"></script>
+    <script src="js/popup.js"></script>
+    <script src="js/ga.js"></script>
+  </head>
+    <body>
+        <ul id="exchanges">
+            <li class="hide" id="total"><strong class="exchange">Total</strong><span class="amount">0 USD / 0</span></a></li>
+            <li class="hide" id="no_exchanges">Please provide any API Key at <a href="#" id="options_page">options page</a></li>
+            <li id="btce_exchange" class="exchange_loading hide">BTC-e loading...</li>
+            <li id="poloniex_exchange" class="exchange_loading hide">Poloniex loading...</li>
+            <li id="kraken_exchange" class="exchange_loading hide">Kraken loading...</li>
+            <li id="bittrex_exchange" class="exchange_loading hide">Bittrex loading...</li>
+        </ul>
+    </body>
+</html>
