@@ -4,7 +4,7 @@ function addExchange(idx, name, usd, btc) {
     const el = document.getElementById(`${idx}_exchange`);
     el.className = '';
     el.innerHTML =
-        `<strong class="exchange">${name}</strong><span class="amount">${Math.floor(usd)} USD / ${btc.toFixed(2)} BTC</span>`;
+        `<strong class="exchange"><a href="${getLink(idx)}" target="_blank">${name}</a></strong><span class="amount">${Math.floor(usd)} USD / ${btc.toFixed(2)} BTC</span>`;
 }
 
 function exchangeError(idx, message) {
@@ -32,8 +32,19 @@ const names = {
     kraken: 'Kraken',
 }
 
+const links = {
+    btce: 'https://btc-e.nz/',
+    poloniex: 'https://poloniex.com/balances',
+    bittrex: 'https://bittrex.com/Balance',
+    kraken: 'Kraken',
+}
+
 function title(name) {
     return names[name]
+}
+
+function getLink(name) {
+    return links[name];
 }
 
 

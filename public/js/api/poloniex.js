@@ -2,11 +2,11 @@
     const POLONIEX_API = function(apiKey, secretKey, options) {
         let nonce = options.nonce || 1;
 
-        function call_api(command, payload = {}, callback) {
-            let request = {
+        function call_api(command, payload = {}) {
+            let request = Object.assign({},{
                 command,
                 nonce,
-            }
+            }, payload)
 
             chrome.storage.sync.set({
                 poloniexOptions: {
@@ -32,7 +32,7 @@
             })
         }
         const get_balance = function(callback){
-            call_api('returnCompleteBalances', {}).then(function(response) {
+            call_api('returnCompleteBalances', {account: 'all'} ).then(function(response) {
                 const { error } = response;
                 if(error) {
                     console.warn('Poloniex', 'returnBalances', response);
