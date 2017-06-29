@@ -7,6 +7,12 @@ function addExchange(idx, name, usd, btc) {
         `<strong class="exchange"><a href="${getLink(idx)}" target="_blank">${name}</a></strong><span class="amount">${Math.floor(usd)} USD / ${btc.toFixed(2)} BTC</span>`;
 }
 
+function addEchangeLoading(idx, name) {
+    const el = document.getElementById(`${idx}_exchange`);
+    el.innerHTML =
+        `<strong class="exchange"><a href="${getLink(idx)}" target="_blank">${name}</a></strong><span class="amount">Loading...</span>`;
+}
+
 function exchangeError(idx, message) {
     const el = document.getElementById(`${idx}_exchange`);
     el.className = '-error';
@@ -36,7 +42,7 @@ const links = {
     btce: 'https://btc-e.nz/',
     poloniex: 'https://poloniex.com/balances',
     bittrex: 'https://bittrex.com/Balance',
-    kraken: 'Kraken',
+    kraken: 'https://www.kraken.com/u/trade',
 }
 
 function title(name) {
@@ -60,6 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if(key && secret) {
                 const el = document.getElementById(`${e}_exchange`);
                 el.className = 'exchange_loading';
+                addEchangeLoading(e, `${title(e)}:`)
                 const api = window[`${e}_api`];
                 if(!api) {
                     return exchangeError(e, `API ${title(e)} not found`)

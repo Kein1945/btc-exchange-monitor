@@ -3,7 +3,7 @@
 
   "name": "BTC exchange monitor",
   "description": "This extension allow you to monitor your btc exchanges balance",
-  "version": "1.0",
+  "version": "1.1",
 
   "options_page": "public/options.html",
   "browser_action": {
