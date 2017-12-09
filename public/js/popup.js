@@ -32,14 +32,14 @@ function addTotal(usd, btc) {
 }
 
 const names = {
-    btce: 'BTC-e',
+    btce: 'Wex',
     poloniex: 'Poloniex',
     bittrex: 'Bittrex',
     kraken: 'Kraken',
 }
 
 const links = {
-    btce: 'https://btc-e.nz/',
+    btce: 'https://wex.nz/',
     poloniex: 'https://poloniex.com/balances',
     bittrex: 'https://bittrex.com/Balance',
     kraken: 'https://www.kraken.com/u/trade',

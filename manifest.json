@@ -17,8 +17,8 @@
   },
   "permissions": [
       "storage",
-      "https://btc-e.nz/tapi",
-      "https://btc-e.nz/api/*",
+      "https://wex.nz/tapi",
+      "https://wex.nz/api/*",
       "https://poloniex.com/tradingApi",
       "https://api.kraken.com/0/private/*",
       "https://bittrex.com/api/v1.1/*"

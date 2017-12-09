@@ -19,7 +19,7 @@
                 data.append( key, request[key] );
             }
 
-            return fetch('https://btc-e.nz/tapi', {
+            return fetch('https://wex.nz/tapi', {
                 method: 'POST',
                 headers: {
                     Key: apiKey,
@@ -46,7 +46,7 @@
 
                 let my_currencies = [];
                 for(currency_name in funds) {
-                    if(funds[currency_name] != 0) {
+                    if(funds[currency_name] != 0 && !/[\da-z]{3}et/.test(currency_name)) {
                         my_currencies.push(currency_name)
                     }
                 }
@@ -118,7 +118,7 @@
                     query.push(get_pair_name(currency, 'btc'))
                 }
             })
-            return fetch(`https://btc-e.nz/api/3/ticker/${_.uniq(query).join('-')}`).
+            return fetch(`https://wex.nz/api/3/ticker/${_.uniq(query).join('-')}`).
                 then(function(response){
                     return response.json();
                 })

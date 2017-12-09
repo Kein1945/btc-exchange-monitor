@@ -93,7 +93,12 @@
 
 
                         if(currency !== 'XXBT'){
-                            const name = get_pair_name(currency, 'XXBT');
+                            let name;
+                            if(currency === 'BCH') {
+                              name = get_pair_name(currency, 'XBT');
+                            }else {
+                              name = get_pair_name(currency, 'XXBT');
+                            }
                             const price = parseFloat(response[name].c[0]);
                             balance[currency].btc = price * amount
                             balance.total.btc += balance[currency].btc
@@ -130,7 +135,9 @@
                 }
                 let query = [];
                 currencies.forEach(function(currency) {
-                    if(currency !== 'XXBT') {
+                    if(currency === 'BCH') {
+                      query.push(get_pair_name(currency, 'XBT'))
+                    } else if(currency !== 'XXBT') {
                         query.push(get_pair_name(currency, 'XXBT'))
                     }
                 })
